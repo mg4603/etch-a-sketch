@@ -30,10 +30,20 @@ function makeGrid(sideLength){
     container.appendChild(verticalFlexBox);
 }
 
+
+
 const button = document.querySelector("button");
 button.addEventListener("click", ()=>{
-    let sideLength = prompt("Enter the number of squares you want in the new square(max: 100)", 16);
-    container.removeChild(container.firstChild);
-    makeGrid(sideLength);
-})
+    let sideLength;
+    while(true){
+        sideLength = Number(prompt("Enter the number of squares you want in the new square(max: 100)", 16));
+        console.log(sideLength );
+        if(sideLength != NaN && sideLength <= 100 && sideLength > 0)
+        {
+            container.removeChild(container.firstChild);
+            makeGrid(sideLength);
+            break;
+        }
+    }
+});
 makeGrid(16);
